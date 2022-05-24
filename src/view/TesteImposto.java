@@ -9,9 +9,9 @@ public class TesteImposto {
 
         SaoPaulo sp = SaoPauloBuilder.builder()
                 .addAreaTotal(75)
-                .addComodos(4)
+                .addComodos(5)
                 .get();
-//
+
         BeloHorizonte bh = BeloHorizonteBuilder.builder()
                 .addAreaTotal(120)
                 .addQuartos(3)
@@ -28,28 +28,30 @@ public class TesteImposto {
                 .addIdadeImovel(15)
                 .get();
 
-        IImpostoStrategy imposto;
 
-        imposto = new ImpostoStrategySP();
-        imposto.ifcAreaTotal(sp.getAreaTotal());
-        imposto.ifcNumComodos(sp.getNumComodos());
-        imposto.calculoImposto();
+        InterfaceNumComodos isp;
+        isp = new ImpostoStrategySP();
+        isp.ifcAreaTotal(sp.getAreaTotal());
+        isp.ifcNumComodos(sp.getNumComodos());
+        isp.ifcCalculoImposto();
 
-        imposto = new ImpostoStrategyBH();
-        imposto.ifcAreaTotal(bh.getAreaTotal());
-        imposto.ifcNumQuartos(bh.getNumQuartos());
-        imposto.calculoImposto();
+        InterfaceNumQuartos ibh;
+        ibh = new ImpostoStrategyBH();
+        ibh.ifcAreaTotal(bh.getAreaTotal());
+        ibh.ifcNumQuartos(bh.getNumQuartos());
+        ibh.ifcCalculoImposto();
 
-        imposto = new ImpostoStrategyPA();
-        imposto.ifcAreaTotal(pa.getAreaTotal());
-        imposto.ifcGaragem(pa.isGaragem());
-        imposto.ifcAreaGaragem(pa.getAreaGaragem());
-        imposto.calculoImposto();
+        InterfaceGaragem ipa;
+        ipa = new ImpostoStrategyPA();
+        ipa.ifcAreaTotal(pa.getAreaTotal());
+        ipa.ifcGaragem(pa.isGaragem());
+        ipa.ifcAreaGaragem(pa.getAreaGaragem());
+        ipa.ifcCalculoImposto();
 
-        imposto = new ImpostoStrategyCU();
-        imposto.ifcAreaTotal(cu.getAreaTotal());
-        imposto.ifcIdadeImovel(cu.getIdadeImovel());
-        imposto.calculoImposto();
-
+        InterfaceIdadeImovel icu;
+        icu = new ImpostoStrategyCU();
+        icu.ifcAreaTotal(cu.getAreaTotal());
+        icu.ifcIdadeImovel(cu.getIdadeImovel());
+        icu.ifcCalculoImposto();
     }
 }

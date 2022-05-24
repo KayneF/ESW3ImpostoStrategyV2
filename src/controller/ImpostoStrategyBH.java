@@ -1,8 +1,6 @@
 package controller;
 
-import model.BeloHorizonte;
-
-public class ImpostoStrategyBH implements IImpostoStrategy {
+public class ImpostoStrategyBH implements InterfaceNumQuartos {
 
     private int areaTotal;
     private int numQuartos;
@@ -16,23 +14,8 @@ public class ImpostoStrategyBH implements IImpostoStrategy {
         this.numQuartos = numQuartos;
     }
     @Override
-    public void calculoImposto() {
+    public void ifcCalculoImposto() {
         double imposto = (this.areaTotal*7) + (this.numQuartos*4);
         System.out.println("Imposto Cidade de Belo Horizonte: " + imposto);
-    }
-
-
-    // UNUSED
-    @Override
-    public void ifcNumComodos(int numComodos) {
-    }
-    @Override
-    public void ifcGaragem(boolean isGaragem) {
-    }
-    @Override
-    public void ifcAreaGaragem(int areaGaragem) {
-    }
-    @Override
-    public void ifcIdadeImovel(int idadeImovel) {
     }
 }

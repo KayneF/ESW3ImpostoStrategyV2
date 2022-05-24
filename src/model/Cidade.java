@@ -1,6 +1,6 @@
 package model;
 
-public class Cidade {
+public abstract class Cidade {
 
     private int areaTotal;
 

@@ -1,12 +1,10 @@
 package controller;
 
-import model.PortoAlegre;
-
-public class ImpostoStrategyPA implements IImpostoStrategy {
+public class ImpostoStrategyPA implements InterfaceGaragem {
 
     private int areaTotal;
-    private int numQuartos;
     private boolean isGaragem;
+    private int areaGaragem;
 
     @Override
     public void ifcAreaTotal(int areaTotal) {
@@ -17,30 +15,19 @@ public class ImpostoStrategyPA implements IImpostoStrategy {
         this.isGaragem = isGaragem;
     }
     @Override
-    public void ifcNumQuartos(int numQuartos) {
-        this.numQuartos = numQuartos;
+    public void ifcAreaGaragem(int areaGaragem) {
+        this.areaGaragem = areaGaragem;
     }
+
     @Override
-    public void calculoImposto() {
+    public void ifcCalculoImposto() {
         if (this.isGaragem) {
-            double imposto = ((this.areaTotal*7.5) + (this.numQuartos*2.5));
+            double imposto = ((this.areaTotal*7.5) + (this.areaGaragem*2.5));
             System.out.println("Imposto Cidade de Porto Alegre com Garagem: " + imposto);
         }
         else {
             double imposto = (this.areaTotal*8);
             System.out.println("Imposto Cidade de Porto Alegre sem Garagem: " + imposto);
         }
-    }
-
-
-    // UNUSED
-    @Override
-    public void ifcNumComodos(int numComodos) {
-    }
-    @Override
-    public void ifcAreaGaragem(int areaGaragem) {
-    }
-    @Override
-    public void ifcIdadeImovel(int idadeImovel) {
     }
 }

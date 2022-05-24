@@ -1,10 +1,9 @@
 package controller;
 
-public class ImpostoStrategySP implements IImpostoStrategy {
+public class ImpostoStrategySP implements InterfaceNumComodos {
 
     private int areaTotal;
     private int numComodos;
-
 
     @Override
     public void ifcAreaTotal(int areaTotal) {
@@ -15,25 +14,9 @@ public class ImpostoStrategySP implements IImpostoStrategy {
         this.numComodos = numComodos;
     }
     @Override
-    public void calculoImposto() {
+    public void ifcCalculoImposto() {
         double imposto = ((this.areaTotal*10) + (this.numComodos*2));
         System.out.println("Imposto Cidade de São Paulo: " + imposto);
     }
-
-
-    // UNUSED
-    @Override
-    public void ifcNumQuartos(int numQuartos) {
-    }
-    @Override
-    public void ifcGaragem(boolean isGaragem) {
-    }
-    @Override
-    public void ifcAreaGaragem(int areaGaragem) {
-    }
-    @Override
-    public void ifcIdadeImovel(int idadeImovel) {
-    }
-
 
 }
